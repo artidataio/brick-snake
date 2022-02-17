@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-bricksnake-dev-131107-authRole",
+            "UnauthRoleArn": "arn:aws:iam::830412445193:role/amplify-bricksnake-dev-131107-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::830412445193:role/amplify-bricksnake-dev-131107-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-bricksnake-dev-131107-deployment",
+            "UnauthRoleName": "amplify-bricksnake-dev-131107-unauthRole",
+            "StackName": "amplify-bricksnake-dev-131107",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:830412445193:stack/amplify-bricksnake-dev-131107/13cefd40-8ff3-11ec-a75f-0abcbdc53aa8",
+            "AmplifyAppId": "d35bkbfyvr04hv"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d35bkbfyvr04hv",
+                    "type": "cicd"
+                }
+            }
+        }
+    }
+}
