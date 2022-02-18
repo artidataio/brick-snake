@@ -611,7 +611,7 @@ function App() {
             cx="105"
             cy="45"
             r="35"
-            fill="url(#myGradient)"
+            fill="yellow"
             onTouchStart={handleN}
           />
           <circle
