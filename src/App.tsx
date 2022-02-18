@@ -1,16 +1,6 @@
-import logo from "./logo.svg";
 import _ from "lodash";
 import { useState, useEffect } from "react";
 import "./App.css";
-
-// function Button(props){
-//   return(
-//     <>
-//     )
-// }
-
-//It was designed as 20px blocks originate from 0,0
-//available type = apple,block
 
 function Brick(props) {
   let color;
@@ -63,10 +53,10 @@ function getRandDiffElem(arr1, arr2) {
 function App() {
   const brickSize = 20;
   const arena = Array(10)
-    .fill()
+    .fill(undefined)
     .map((v, i) =>
       Array(20)
-        .fill()
+        .fill(undefined)
         .map((v, j) => [i, j])
     )
     .flat();
@@ -528,7 +518,7 @@ function App() {
             {block.map((v, i) => {
               return (
                 <g
-                  key={[v[0], v[1]]}
+                  key={`${v[0]}, ${v[1]}`}
                   transform={`translate(${v[0] * brickSize},${
                     v[1] * brickSize
                   }) scale(${brickSize / 20})`}
@@ -547,7 +537,7 @@ function App() {
             {snake.map((v, i) => {
               return (
                 <g
-                  key={[v[0], v[1]]}
+                  key={`${v[0]}, ${v[1]}`}
                   transform={`translate(${v[0] * brickSize},${
                     v[1] * brickSize
                   }) scale(${brickSize / 20})`}
