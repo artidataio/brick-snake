@@ -597,7 +597,6 @@ function App() {
             onClick={handleMain}
           />
         </g>
-
         <defs>
           <radialGradient id="myGradient">
             <stop offset="0%" stop-color="white" />
@@ -614,6 +613,15 @@ function App() {
             fill="yellow"
             onTouchStart={handleN}
           />
+          <text
+            x="105"
+            y="45"
+            fill="black"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            W
+          </text>
           <circle
             cx="105"
             cy="165"
@@ -621,6 +629,15 @@ function App() {
             fill="yellow"
             onTouchStart={handleS}
           />
+          <text
+            x="105"
+            y="165"
+            fill="black"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            S
+          </text>
           <circle
             cx="45"
             cy="105"
@@ -628,6 +645,15 @@ function App() {
             fill="yellow"
             onTouchStart={handleW}
           />
+          <text
+            x="45"
+            y="105"
+            fill="black"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            A
+          </text>
           <circle
             cx="165"
             cy="105"
@@ -635,6 +661,15 @@ function App() {
             fill="yellow"
             onTouchStart={handleE}
           />
+          <text
+            x="165"
+            y="105"
+            fill="black"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            D
+          </text>
         </g>
       </svg>
     </div>
