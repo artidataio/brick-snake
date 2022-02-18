@@ -1,9 +1,9 @@
-import _ from "lodash";
+import * as _ from "lodash";
 import { useState, useEffect } from "react";
 import "./App.css";
 
-function Brick(props) {
-  let color;
+function Brick(props: { type: string; }) {
+  let color: string;
   switch (props.type) {
     case "apple":
       color = "red";
@@ -45,7 +45,7 @@ function Brick(props) {
   );
 }
 
-function getRandDiffElem(arr1, arr2) {
+function getRandDiffElem(arr1: number[][], arr2: number[][]) {
   let empty = _.differenceWith(arr1, arr2, _.isEqual);
   return empty[Math.floor(Math.random() * empty.length)];
 }
@@ -54,10 +54,10 @@ function App() {
   const brickSize = 20;
   const arena = Array(10)
     .fill(undefined)
-    .map((v, i) =>
+    .map((_v, i) =>
       Array(20)
         .fill(undefined)
-        .map((v, j) => [i, j])
+        .map((_v, j) => [i, j])
     )
     .flat();
   const initSnake = [
@@ -65,7 +65,6 @@ function App() {
     [3, 19],
     [2, 19],
   ];
-  const enumPhase = ["reset", "move", "dead"];
   const initBlock = {
     1: [],
     2: [
@@ -336,7 +335,7 @@ function App() {
   const [keyFlag, setKeyFlag] = useState(true); //ensure direction change only happen once per frame
 
   useEffect(() => {
-    let frame;
+    let frame: NodeJS.Timer;
     if (phase === "move") {
       frame = setInterval(() => {
         let newHead = _.head(_.cloneDeep(snake));
@@ -362,7 +361,7 @@ function App() {
               _.concat(_.dropRight(snake), block),
               _.isEqual
             ),
-            (e) => _.isEqual(e, newHead)
+            (e: string[][]) => _.isEqual(e, newHead)
           ) < 0
         ) {
           if (life === 1) {
@@ -419,7 +418,7 @@ function App() {
   });
 
   // manipulating direction based on key stroke
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: { key: string; }) => {
     if (keyFlag) {
       let newDirection = direction;
       switch (event.key) {
@@ -443,7 +442,7 @@ function App() {
     }
   };
 
-  const handleN = (e) => {
+  const handleN = () => {
     if (keyFlag) {
       if (_.indexOf(["N", "S"], direction) < 0) {
         setDirection("N");
@@ -452,7 +451,7 @@ function App() {
     }
   };
 
-  const handleS = (e) => {
+  const handleS = () => {
     if (keyFlag) {
       if (_.indexOf(["S", "N"], direction) < 0) {
         setDirection("S");
@@ -479,7 +478,7 @@ function App() {
     }
   };
 
-  const handleMain = (e) => {
+  const handleMain = () => {
     if (phase === "reset") {
       setTimeout(() => {
         setPhase("move");
@@ -515,7 +514,7 @@ function App() {
             strokeWidth="5"
           />
           <g transform="translate(5,5)">
-            {block.map((v, i) => {
+            {block.map((v) => {
               return (
                 <g
                   key={`${v[0]}, ${v[1]}`}
