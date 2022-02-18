@@ -413,7 +413,7 @@ function App() {
         setDirection("E");
       }, 1000);
     }
-  }, [phase]);
+  }, [phase, level]);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
