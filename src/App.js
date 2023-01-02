@@ -138,6 +138,8 @@ function App() {
         case "a":
           if (direction !== "E") newDirection = "W";
           break;
+        default:
+          break;
       }
       if (newDirection !== direction) {
         setDirection(newDirection);
