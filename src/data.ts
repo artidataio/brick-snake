@@ -1,5 +1,5 @@
 // prettier-ignore
-const initBlock = { 
+const initBlock: Record<number,[number,number][]> = { 
   1: [],
   2: [[2,2],[2,3],[2,16],[2,17],
       [3,2],[3,17],[4,9],[4,10],
@@ -45,7 +45,7 @@ const initBlock = {
       [9,2],[9,17]]
   }
 
-const initSnake = [
+const initSnake: readonly [number, number][] = [
   [4, 19],
   [3, 19],
   [2, 19],

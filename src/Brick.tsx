@@ -1,5 +1,5 @@
 type Props = {
-  type: "apple" | "block" | "head";
+  type: "apple" | "block" | "head" | "body";
 };
 
 export default function Brick(props: Props) {
@@ -14,8 +14,11 @@ export default function Brick(props: Props) {
     case "head":
       color = "green";
       break;
-    default:
+    case "body":
       color = "limegreen";
+      break;
+    default:
+      break;
   }
 
   return (

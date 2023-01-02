@@ -6,16 +6,16 @@ import "./App.css";
 
 const brickSize = 20;
 
-const arena = Array(10)
+const arena: [number, number][] = Array(10)
   .fill(undefined)
   .map((_v, i) =>
     Array(20)
       .fill(undefined)
-      .map((_v, j) => [i, j])
+      .map((_v, j) => [i, j] as [number, number])
   )
   .flat();
 
-function getRandDiffElem(arr1, arr2) {
+function getRandDiffElem(arr1: [number, number][], arr2: [number, number][]) {
   let empty = _.differenceWith(arr1, arr2, _.isEqual);
   return empty[Math.floor(Math.random() * empty.length)];
 }
@@ -37,10 +37,11 @@ function App() {
   const [keyFlag, setKeyFlag] = useState(true); //ensure direction change only happen once per frame
 
   useEffect(() => {
-    let frame;
+    let frame: ReturnType<typeof setInterval>;
+
     if (phase === "move") {
       frame = setInterval(() => {
-        let newHead = _.head(_.cloneDeep(snake));
+        let newHead: [number, number] = _.head(_.cloneDeep(snake)) ?? [0, 0];
         switch (direction) {
           case "N":
             newHead[1] -= 1;
@@ -116,13 +117,8 @@ function App() {
     }
   }, [phase, level]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  });
-
   // manipulating direction based on key stroke
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (keyFlag) {
       let newDirection = direction;
       switch (event.key) {
@@ -147,6 +143,11 @@ function App() {
       }
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
 
   const handleN = () => {
     if (keyFlag) {
