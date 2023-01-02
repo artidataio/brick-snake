@@ -19,6 +19,7 @@ const initSnake = [
   [2, 19],
 ];
 
+// prettier-ignore
 const initBlock = { 
   1: [],
   2: [[2,2],[2,3],[2,16],[2,17],
@@ -66,7 +67,7 @@ const initBlock = {
   }
 
 function Brick(props) {
-  let color
+  let color;
   switch (props.type) {
     case "apple":
       color = "red";
@@ -146,6 +147,8 @@ function App() {
             break;
           case "W":
             newHead[0] -= 1;
+            break;
+          default:
             break;
         }
 
